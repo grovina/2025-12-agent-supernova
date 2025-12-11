@@ -2,7 +2,8 @@ from src.agent import run
 
 
 
-run("How much is 2+2?")
+answer = run("Can you tell me my name?")
+print(answer)
 
 
 
