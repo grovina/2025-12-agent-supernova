@@ -20,11 +20,11 @@ def get_date_and_time() -> str:
 
 @function_tool
 def ask_alexey(question: str) -> str:
-    print(f"🛠️  Asking Alexey {question}...")
+    print(f"🛠️  Asking Alexey '{question}'...")
     reply = send_and_wait(
         chat_id="228524442",
         message=question,
         timeout=60.0
     )
-    print(f"💬  Reply from Alexey: '{reply}'")
+    print(f"💬 Reply from Alexey: '{reply}'")
     return f"Alexey says: {reply}."
