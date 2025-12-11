@@ -1,6 +1,7 @@
 from agents import function_tool
 from datetime import datetime
 from .utils.telegram import send_and_wait
+from .utils.rag import query_rag
 
 @function_tool
 def get_weather(city: str) -> str:
@@ -28,3 +29,13 @@ def ask_alexey(question: str) -> str:
     )
     print(f"💬 Reply from Alexey: '{reply}'")
     return f"Alexey says: {reply}."
+
+@function_tool
+def search_rag(query: str, top_k: int = 3, threshold: float = 0.3) -> str:
+    print(f"🛠️  Querying RAG for '{query}'...")
+    similarities = query_rag(query, top_k, threshold)
+
+    lines = [f"Top {top_k} matches for '{query}' that are at least {threshold} similar:"]
+    for similarity, doc in similarities:
+        lines.append(f"  {similarity:.3f}: {doc}...")
+    return "\n".join(lines)
