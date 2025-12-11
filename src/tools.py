@@ -26,4 +26,5 @@ def ask_alexey(question: str) -> str:
         message=question,
         timeout=60.0
     )
+    print(f"💬  Reply from Alexey: '{reply}'")
     return f"Alexey says: {reply}."
