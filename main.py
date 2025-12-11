@@ -1,9 +1,10 @@
 from src.agent import run
 
 
-
-answer = run("Can you tell me my name?")
-print(answer)
+while True:
+    prompt = input("👤 ")
+    answer = run(prompt)
+    print(f"🤖 {answer}")
 
 
 
